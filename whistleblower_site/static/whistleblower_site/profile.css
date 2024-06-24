@@ -1,0 +1,52 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+}
+
+.text {
+    color: var(--dark-blue)
+}
+
+.report_list {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+}
+
+.link {
+    color: var(--secondary-beige);
+}
+    .link:hover {
+        color: var(--primary-yellow);
+    }
+
+.butt {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+  }
+  
+  .butt:hover {
+    background-color: var(--light-blue);
+    color: var(--secondary-beige);
+  }
+
+.butt2 {
+background-color: var(--secondary-beige);
+color: var(--dark-blue);
+}
+
+.butt2:hover {
+background-color: var(--primary-yellow);
+color: var(--dark-blue);
+}
+
+.input {
+    padding: 5px 10px;
+    margin-right: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+  }

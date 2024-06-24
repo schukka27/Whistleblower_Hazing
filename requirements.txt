@@ -1,0 +1,10 @@
+django
+django-allauth==0.61.1
+django-bootstrap5
+gunicorn
+dj_database_url
+django-heroku
+psycopg2
+boto3
+django-storages
+python-dotenv

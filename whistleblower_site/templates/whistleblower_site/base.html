@@ -1,0 +1,115 @@
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../static/whistleblower_site/base.css">
+    <link rel="stylesheet" type="text/css" href="../static/whistleblower_site/base.css">
+    <title>OrgReport</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light navvy">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'orgreport:home' %}">
+            <button class="btn butt">
+                Home
+            </button>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupported" aria-controls="navbarSupported" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupported">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% if 'admin' not in user_groups %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:report' %}">
+                            <button class="btn butt">
+                                Submit a Report
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:find_resources' %}">
+                            <button class="btn butt">
+                                Find Resources
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:search_reports' %}">
+                            <button class="btn butt">
+                                Report Forum
+                            </button>
+                        </a>
+                    </li>
+                {% elif 'admin' in user_groups%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:s3_folder_view' %}">
+                            <button class="btn butt">
+                                View Submitted Reports
+                            </button>
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+            <ul class="navbar-nav">
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:login' %}">
+                            <button class="btn butt">
+                                Login
+                            </button>
+                        </a>
+                    </li>
+                {% else %}
+                    {% if user.is_superuser%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'admin:index' %}">
+                                <button class="btn butt">
+                                    Admin Login
+                                </button>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if 'admin' not in user_groups %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:profile' %}">
+                            <button class="btn butt">
+                                Profile
+                            </button>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'orgreport:logout' %}">
+                            <button class="btn butt">
+                                Logout
+                            </button>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4 content-container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer class="footy py-2 fixed-bottom">
+    <div class="container text-light text-center">
+        <p class="mb-3">OrgReport</p>
+        <small>This system is a class project, is not monitored, and thus no real information should be submitted.</small>
+    </div>
+</footer>
+
+{% bootstrap_javascript %}
+</body>
+</html>

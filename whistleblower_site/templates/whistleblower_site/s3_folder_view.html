@@ -1,0 +1,77 @@
+ {% extends 'whistleblower_site/base.html' %}
+
+ {% block content %}
+ <link rel="stylesheet" type="text/css" href="../../static/whistleblower_site/s3_folder_view.css">
+ <div class="container mt-4">
+     <h1>Submitted Reports</h1>
+     <div class="container mt-3" style="padding: 0;">
+        <form method="GET" action="{% url 'orgreport:s3_folder_view' %}">
+            {% csrf_token %}
+            <label for="org">Organization: </label>
+            <input type="text" class="input form-field" id="org" name="org" value="{% if organization_query %}{{ organization_query }}{% endif %}">
+
+            <label for="after">Date Range: </label>
+            <input type="date" class="input form-field" id="after" name="after" value="{{ after_query }}">
+
+            <label for="before">-</label>
+            <input type="date" class="input form-field" id="before" name="before" value="{{ before_query }}">
+
+            <label for="status">Status:</label>
+            <select class="input form-field" id="status" name="status">
+                <option value="All" {% if status_query == None %}selected{% endif %}>All</option>
+                <option value="New" {% if status_query == "New" %}selected{% endif %}>New</option>
+                <option value="In Progress" {% if status_query == "in_progress" %}selected{% endif %}>In Progress</option>
+                <option value="Resolved" {% if status_query == "Resolved" %}selected{% endif %}>Resolved</option>
+            </select>
+
+            <button type="submit" class="button">Search</button>
+            <button type="submit" class="button" name="reset" value="true">Reset Filters</button>
+        </form>
+    </div>
+     {% if user.is_authenticated and 'admin' in user_groups %}
+         {% if report_data %}
+         <ul class="list-group report_list">
+            {% for data in report_data %}
+                <li class="list-group-item report_list">
+                    <h2><a href="{% url 'orgreport:report_detail' data.report.id %}" class="link">Report # {{ data.report.id }}</a></h2>
+                    <strong>
+                        Organization:
+                    </strong>
+                    {{ data.report.organization }}
+                    <h3>Associated User</h3>
+                    {% if data.report.anonymous_account %}
+                        <strong>The report was submitted anonymously</strong>
+                    {% else %}
+                        <strong>
+                            Full Name: 
+                        </strong>
+                        {{ data.report.user.first_name }} {{ data.report.user.last_name }}
+                        <strong> | Email: </strong>
+                        {{ data.report.user.email }}
+                    {% endif %}
+                    <br>
+                    <strong>
+                        Status: 
+                    </strong>
+                    {% if data.report.status == 'in_progress' %}
+                        In Progress
+                    {% elif data.report.status == 'resolved' %}
+                        Resolved
+                    {% else %}
+                        New
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>        
+         {% else %}
+             <p>No reports found.</p>
+         {% endif %}
+     {% else %}
+         <div class="alert alert-danger" role="alert">
+             You do not have permission to view this content.
+         </div>
+     {% endif %}
+     <a href="{% url 'orgreport:home' %}" class="btn mt-3 butt">Back to Home</a>
+ </div>
+ {% endblock %}
+ 

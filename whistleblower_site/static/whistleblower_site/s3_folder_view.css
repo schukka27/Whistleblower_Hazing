@@ -1,0 +1,68 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+}
+
+h1 {
+    color: var(--dark-blue);
+}
+
+.report_list {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+}
+
+.link {
+    color: var(--secondary-beige);
+}
+    .link:hover {
+        color: var(--primary-yellow);
+    }
+
+.butt {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    }
+
+    .butt:hover {
+    background-color: var(--light-blue);
+    color: var(--secondary-beige);
+    }
+
+.button {
+    background-color: var(--dark-blue);
+    border: none;
+    color: white;
+    text-align: center;
+    padding:5px 10px;
+    border-radius:5px;
+    margin-left: 5px;
+    }
+
+    .button:hover {
+    background-color: var(--light-blue);
+    }
+
+    .input {
+    padding: 5px 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    }
+
+.form-field {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    }
+    .form-field:hover {
+        background-color: var(--dark-blue);
+        color: var(--secondary-beige);
+    }
+    .form-field:focus {
+        background-color: var(--dark-blue);
+        color: var(--secondary-beige);
+    }

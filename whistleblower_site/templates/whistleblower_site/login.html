@@ -1,0 +1,55 @@
+{% load socialaccount %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<link rel="stylesheet" type="text/css" href="../static/whistleblower_site/login.css">
+
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .description {
+    font-size: 0.8rem; 
+    line-height: 1.2;
+}
+
+</style>
+
+<div class="container text-center containerbox">
+    <h1 class="title">Welcome to OrgReport</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <a href="{% url 'orgreport:home' %}">
+                <button class="btn butt">
+                    Continue Anonymously
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-md-6 text-center">
+            <a href="{% provider_login_url 'google' %}?next=/home/">
+                <button class="btn butt">
+                    Login with Google
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8 text-center">
+            <p class="description">
+                OrgReport enables students, particularly those at UVA, to report harmful or inappropriate behavior within various student organizations on college campuses. It offers optional anonymity, aiming to create a safe environment for disclosure and promote a culture of safety and accountability.
+            </p>
+        </div>
+    <div class="alert alert-success row justify-content-center mt-2" role="alert">
+        This site is not an actual UVA/Public resource. It is a project for CS3240.
+    </div>
+    </div>
+</div>

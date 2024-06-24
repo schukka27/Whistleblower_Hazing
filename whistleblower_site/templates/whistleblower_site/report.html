@@ -1,0 +1,65 @@
+{% extends 'whistleblower_site/base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/whistleblower_site/report.css">
+    <form method="post" enctype="multipart/form-data" action="{% url 'orgreport:report' %}" class="update-form">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            <div>
+                <label for="name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" class="form-field" readonly>
+                <label for="name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" class="form-field" readonly>
+            </div>
+            <br>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="{{ user.email }}" class="form-field" readonly>
+            </div>
+            <br>
+        {% endif %}
+        <div>
+            <label for="title">Organization Title*:</label>
+            <input type="text" id="title" name="organization" class="form-field" required>
+        </div>
+        <br>
+        <div>
+            <label for="date">Date Of Event*:</label>
+            <input type="datetime-local" id="date" name="date" class="form-field" required>
+        </div>
+        <br>
+        <div>
+            <label for="location">Location*:</label>
+            <input type="text" id="location" name="location" class="form-field" required>
+        </div>
+        <br>
+        <div>
+            <label for="description">Description of Event*:</label><br>
+            <textarea id="description" name="description" rows="4" cols="100" class="form-field" required></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="publish">Are you ok with your report being published anonymously on the forum?*</label><br>
+            <input type="radio" id="publish_yes" name="publish" value="true" required>
+            <label for="publish_yes">Yes</label>
+            <input type="radio" id="publish_no" name="publish" value="false" required>
+            <label for="publish_no">No</label>
+        </div>
+        <br>
+        {% csrf_token %}
+        <label for="file_input">Optional Evidence (PDF, TXT, JPG):</label><br>
+        <input type="file" name="file" accept=".pdf,.txt,.jpg" multiple>
+        <button type="submit" class="btn butt2">Submit Report</button>
+    </form>
+    {% if submitted %}
+        <div class="alert alert-success" role="alert">
+            Your report has been submitted successfully.
+        </div>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'whistleblower_site/base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/whistleblower_site/home.css">
+
+<div class="main-container">
+    <div class="welcome-container">
+        {% if user.is_authenticated %}
+            <strong>Welcome, {{ user.first_name }} {{ user.last_name }}!</strong>
+            <strong>Email: {{ user.email }}</strong>
+            {% if 'admin' in user_groups %}
+                <p>You are an admin.</p>
+                <a href="{% url 'orgreport:s3_folder_view' %}" class="btn btn-info custom-btn">
+                    <img src="/static/whistleblower_site/images/view_reports.png">
+                    <strong>View Submitted Reports</strong>
+                </a>
+            {% endif %}
+        {% else %}
+            <strong>Welcome, Anonymous.</strong>
+        {% endif %}
+    </div>
+    <div class="directs-container">
+        {% if 'admin' not in user_groups %}
+            <a href="{% url 'orgreport:report' %}" class="btn btn-info custom-btn">
+                <img src="/static/whistleblower_site/images/submit_a_report.png">
+                <strong>Submit a Report</strong>
+            </a>
+            <a href="{% url 'orgreport:find_resources' %}" class="btn btn-success custom-btn">
+                <img src="/static/whistleblower_site/images/find_resources.png">
+                <strong>Find Resources</strong>
+            </a>
+            <a href="{% url 'orgreport:search_reports' %}" class="btn btn-warning custom-btn">
+                <img src="/static/whistleblower_site/images/search_image.png">    
+                <strong>Report Forum</strong>
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

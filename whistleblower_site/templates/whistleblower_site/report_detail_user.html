@@ -1,0 +1,61 @@
+{% extends 'whistleblower_site/base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../../static/whistleblower_site/report_user.css">
+
+<h1>Report Details</h1>
+    <div class="report-detail">
+        <div>
+            {% if report.anonymous_account %}
+                <strong>The report was submitted anonymously</strong>
+            {% else %}
+                <strong>
+                    Full Name:
+                </strong>
+                {{ report.first_name }} {{ report.last_name }}
+                <strong> | Email:</strong>
+                {{ report.email }}
+            {% endif %}
+        </div>
+        <div>
+            <strong>Organization Title:</strong> {{ report.organization }}
+        </div>
+        <div>
+            <strong>Date Of Event:</strong> {{ report.date|date:"D, d M Y H:i" }}
+        </div>
+        <div>
+            <strong>Location:</strong> {{ report.location }}
+        </div>
+        <div>
+            <strong>Description of Event:</strong> {{ report.description }}
+        </div>
+        <div>
+            <strong>
+                Status:
+            </strong>
+            {% if report.status == 'in_progress' %}
+                In Progress
+            {% elif report.status == 'resolved' %}
+                Resolved
+            {% else %}
+                New
+            {% endif %}
+        </div>
+        <div>
+            <strong>Admin Notes:</strong> {% if report.admin_notes %}{{ report.admin_notes }}{% else %}N/A{% endif %}
+        </div>
+        {% if report.report_files.all %}
+            <div>
+                <strong>File(s):</strong>
+            {% for file in report.report_files.all %}
+                <a href="{% url 'orgreport:download_file' file.filename %}" class="link">{{ file.filename }}</a>
+            {% endfor %}
+            </div>
+        {% else %}
+            <div>
+                <strong>File:</strong> N/A
+            </div>
+        {% endif %}
+    </div>
+    <a href="{% url 'orgreport:profile' %}" class="btn mt-3 butt">Back to Profile</a>
+{% endblock %}

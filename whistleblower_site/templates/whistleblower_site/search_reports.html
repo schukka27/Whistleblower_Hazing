@@ -1,0 +1,56 @@
+{% extends 'whistleblower_site/base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/whistleblower_site/search_reports.css">
+<div class="container mt-5">
+    <h2>Search Past Reports</h2>
+    <div class="container mt-3" style="padding: 0;">
+        <form method="GET" action="{% url 'orgreport:search_reports' %}">
+            {% csrf_token %}
+            <label for="org">
+                <strong>
+                    Organization:
+                </strong> 
+            </label>
+            <input type="text" class="input form-field" id="org" name="org" value="{% if organization_query %}{{ organization_query }}{% endif %}">
+
+            <label for="after">
+                <strong>
+                    Date Range:
+                </strong>   
+            </label>
+            <input type="date" class="input form-field" id="after" name="after" value="{{ after_query }}">
+            
+            <label for="before">-</label>
+            <input type="date" class="input form-field" id="before" name="before" value="{{ before_query }}">
+            
+            <button type="submit" class="button">Search</button>
+            <button type="submit" class="button" name="reset" value="true">Reset Filters</button>
+        </form>
+    </div>
+    <div class="row justify-content-center mt-2 divColor rounded">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 200px">Date</th>
+                <th scope="col" style="width: 200px">Organization</th>
+                <th scope="col" style="width: 600px">Description</th>
+              </tr>
+            </thead>
+            {% if reports %}
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td scope="row">{{report.date}}</td>
+                    <td>{{report.organization}}</td>
+                    <td>{{report.description}}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                    <td colspan="3">No reports found.</td>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

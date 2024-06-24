@@ -1,0 +1,113 @@
+{% extends 'whistleblower_site/base.html' %}
+
+{% load socialaccount %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/whistleblower_site/resources.css">
+<div class="container mt-5">
+  <h2>Types of Users</h2>
+  <div class="row justify-content-center mt-2 divColor rounded">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Anonymous Users</th>
+          <th scope="col">Common Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row">Anonymous users will be allowed to submit a report without having any information about them collected. This means that no identifying information will be tied to the report, including name, email, or year, in order to protect privacy and anonymity. The system will only receive the report itself and no information on the user who submitted it. While this means it is anonymous, it also means that the anonymous user will not be able to follow up on the report. This includes being contacted with follow up questions, being able to delete past submissions, and being able to view past submissions and their status. Once the report is submitted, it will be out of the anonymous user’s hands. As a result, it is possible that action on anonymous reports may be limited due to the inability to follow up.</td>
+          <td>Common users will login with their email in order to submit a report. When submitting a report while logged in, information about the user will be collected and attached to the report, including name and email. This means that the report is not anonymous and will be associated with a specific, common user. This also means that the common user will have access to past submissions, which can be deleted and viewed for status updates. Additionally, common users may be contacted with follow up questions and information if necessary. Therefore, anonymity is sacrificed for a more active role with the submissions once submitted.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <h2>UVA Resources</h2>
+  </div>
+  <div class="row justify-content-center mt-2 divColor rounded">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Resource</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="https://report.virginia.edu/" class="link">UVA Compliance Helpline</a></th>
+          <td>This link allows people to submit concerns over unethical behavior or policy violations to the University. This is the most general reporting form, but also includes links to subject-specific portals at the bottom. Access via the link or call (800) 235-8700.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://justreportit.virginia.edu/" class="link">Just Report It</a></th>
+          <td>Just Report It is UVA's online reporting system for hazing, sexual harassment and violence, youth protection, and more. See the website for more descriptions on the incidents that may be reported and how they will be dealt with.</td>
+        </tr>
+        <tr>
+          <th scope="row">UVA Hazing Hotline</th>
+          <td>Call (434) 243-HAZE (4293) to report hazing incidents to the university.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://uvapolicy.virginia.edu/policy/STU-005" class="link">UVA Hazing Policy</a></th>
+          <td>For information on UVA's specific policies against hazing, see this link.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://uvapolicy.virginia.edu/policy/GOV-003" class="link">UVA Compliance Policy</a></th>
+          <td>For details on UVA's compliance with federal, state, and other regulations, see this link.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://cavcare.virginia.edu/interactive-resource-guide/welcome" class="link">Sexual Misconduct Interactive Resource Guide</a></th>
+          <td>The University provides an interactive guide to help those impacted by sexual misconduct to understand the options available to them.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://www.studenthealth.virginia.edu/CAPS" class="link">CAPS</a></th>
+          <td>CAPS is UVA's counseling and psychological services. If you are struggling with mental health as a result of harmful behavior by student organizations, CAPS is a free resource available to help students.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://stophazing.org/policy/state-laws/virginia/#:~:text=the%20relevant%20activity.-,%C2%A7%2018.2%2D56.,of%20a%20Class%201%20misdemeanor" class="link">Virginia Anti-Hazing Law</a></th>
+          <td>If you want to know your rights as a student in Virginia, then this website Includes descriptions of the laws currently in place to protect students against hazing in Virginia.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="row justify-content-center mt-5">
+    <h2>General Resources</h2>
+  </div>
+  <div class="row justify-content-center mt-2 divColor rounded">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Resource</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="https://fraternallaw.com/help-us-stop-hazing" class="link">Anti-Hazing Hotline</a></th>
+          <td>For information on a national anti-hazing hotline, see this link, which also contains a list of men's and women's greek life organizations that sponsor National Anti-Hazing Hotline. You can also call the hotline at (888) 668-4293.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://hazingpreventionnetwork.org/how-to-report-hazing/ " class="link">How to Report Hazing</a></th>
+          <td>If you have seen or experienced hazing, see this link to learn more about your resources for reporting such incidents.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://stophazing.org/policy/state-laws/#:~:text=Although%2044%20of%20the%2050,legally%20address%20hazing%20at%20all" class="link">States with Anti-Hazing Laws</a></th>
+          <td>For more information on states with laws in place to protect students against hazing, see this link. The interactive map will allow you to click on a state to see its specific hazing laws.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://hazingpreventionnetwork.org/nhpw-resources/" class="link">Educational Resources</a></th>
+          <td>See this link for a list of hazing educational resources, including short descriptions and links to the resources.</td>
+        </tr>
+        <tr>
+          <th scope="row"><a href="https://www.onlinecolleges.net/for-students/mental-health-resources/" class="link">College Student Mental Health Resources</a></th>
+          <td>If you're struggling with your mental health as a result of harmful behavior in a student organization, see this link for a thorough list of resources to help with mental health struggles. This includes the ability to see state-specific as well as general resources.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

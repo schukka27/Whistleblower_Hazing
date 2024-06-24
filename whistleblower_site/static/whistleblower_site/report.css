@@ -1,0 +1,59 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--secondary-beige);
+}
+
+.report-detail {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.link {
+    color: var(--secondary-beige);
+}
+    .link:hover {
+        color: var(--primary-yellow);
+    }
+
+.update-form {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+.butt {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    }
+
+    .butt:hover {
+    background-color: var(--light-blue);
+    color: var(--secondary-beige);
+    }
+
+.butt2 {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+    }
+
+    .butt2:hover {
+    background-color: var(--primary-yellow);
+    color: var(--dark-blue);
+    }
+
+.form-field {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+}
+    .form-field:hover {
+        background-color: var(--secondary-beige);
+        color: var(--dark-blue);
+    }
+    .form-field:focus {
+        background-color: var(--secondary-beige);
+        color: var(--dark-blue);
+    }

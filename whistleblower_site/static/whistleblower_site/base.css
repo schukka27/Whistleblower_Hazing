@@ -1,0 +1,23 @@
+@import url('variables.css');
+
+.navvy {
+  background-color: var(--primary-yellow);
+}
+
+.content-container {
+  padding-bottom: 100px;
+}
+
+.footy {
+  background-color: var(--primary-yellow);
+}
+
+.butt {
+  background-color: var(--dark-blue);
+  color: var(--secondary-beige);
+}
+
+.butt:hover {
+  background-color: var(--light-blue);
+  color: var(--secondary-beige);
+}

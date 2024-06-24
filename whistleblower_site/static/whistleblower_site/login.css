@@ -1,0 +1,28 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--secondary-beige);
+}
+
+.title {
+  font-size: 2rem; 
+  margin-bottom: 20px; 
+  color: var(--secondary-beige);
+}
+
+.butt {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+  }
+
+  .butt:hover {
+    background-color: var(--primary-yellow);
+    color: var(--dark-blue);
+  }
+
+.containerbox {
+    background-color: var(--dark-blue);
+    color: var(--secondary-beige);
+    border-radius:5px;
+    padding: 20px;
+}

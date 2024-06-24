@@ -1,0 +1,49 @@
+@import url('variables.css');
+
+body {
+    background-color: var(--secondary-beige);
+    color: var(--dark-blue);
+}
+
+.divColor{
+    background-color: var(--dark-blue);
+}
+
+.table {
+    color: var(--secondary-beige); 
+    border-color: var(--secondary-beige); 
+    background-color: var(--dark-blue); 
+  }
+  
+  .table thead th {
+    color: var(--secondary-beige); 
+    background-color: var(--dark-blue); 
+    border-color: var(--secondary-beige); 
+  }
+  
+  .table tbody td {
+    color: var(--secondary-beige); 
+    border-color: var(--secondary-beige); 
+    background-color: var(--dark-blue); 
+  }
+
+  .table tbody th {
+    color: var(--secondary-beige); 
+    border-color: var(--secondary-beige); 
+    background-color: var(--dark-blue); 
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: var(--dark-blue);
+  }
+  
+  .table tbody tr:nth-child(odd) {
+    background-color: var(--dark-blue);
+  }
+
+.link {
+    color: var(--secondary-beige); 
+}
+    .link:hover {
+        color: var(--primary-yellow);
+    }
