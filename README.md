@@ -1,4 +1,14 @@
-# Whistleblower_Hazing
-Whistleblower Application meant for Reporting Hazing and Finding Hazing Cases about Various Organizations
+# Org Report Whistleblower Site
 
-The application was built on Django using a Heroku Postgres backend. All views were built using HTML/CSS with Bootstrap
+__Disclaimer__: It should be noted that this is not an actually reporting site. None of the reports or data used is real. This is a class project.
+
+__Scrum Master:__ Jacob Wald
+
+__Requirements Manager:__ Luci Owens 
+
+__Testing Manager:__ Saumil Chukka
+
+__DevOps Manager:__ Ben Cassatt
+
+__Software Architecht:__ Shaina Kumar
+
